@@ -21,7 +21,7 @@ export async function getWeekPendingGoals() {
       .where(lte(goals.createdAt, lastDayOfWeek))
   )
 
-  const goalCompletionCounts = db.$with('goal_completion_counts').as(
+  const goalsCompletionCounts = db.$with('goal_completion_counts').as(
     db
       .select({
         goalId: goalCompletions.goalId,
@@ -38,19 +38,19 @@ export async function getWeekPendingGoals() {
   )
 
   const pendingGoals = await db
-    .with(goalsCreatedUpToWeek, goalCompletionCounts)
+    .with(goalsCreatedUpToWeek, goalsCompletionCounts)
     .select({
       id: goalsCreatedUpToWeek.id,
       title: goalsCreatedUpToWeek.title,
       desiredWeeklyFrequency: goalsCreatedUpToWeek.desiredWeeklyFrequency,
       completionCount: sql`
-        COALESCE(${goalCompletionCounts.completionCount}, 0)
+        COALESCE(${goalsCompletionCounts.completionCount}, 0)
       `.mapWith(Number),
     })
     .from(goalsCreatedUpToWeek)
     .leftJoin(
-      goalCompletionCounts,
-      eq(goalCompletionCounts.goalId, goalsCreatedUpToWeek.id)
+      goalsCompletionCounts,
+      eq(goalsCompletionCounts.goalId, goalsCreatedUpToWeek.id)
     )
 
   return {
