@@ -15,6 +15,13 @@
       "when": 1731727112877,
       "tag": "0001_abandoned_thunderbolt_ross",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1735597401123,
+      "tag": "0002_opposite_gwen_stacy",
+      "breakpoints": true
     }
   ]
 }
