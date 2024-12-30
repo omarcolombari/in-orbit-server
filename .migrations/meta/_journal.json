@@ -22,6 +22,13 @@
       "when": 1735597401123,
       "tag": "0002_opposite_gwen_stacy",
       "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1735597456573,
+      "tag": "0003_perpetual_gladiator",
+      "breakpoints": true
     }
   ]
 }
