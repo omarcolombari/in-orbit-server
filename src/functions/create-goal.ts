@@ -1,7 +1,7 @@
 import { db } from '../db'
 import { goals } from '../db/schema'
 
-interface CreateGoalsRequest {
+interface CreateGoalRequest {
   title: string
   desiredWeeklyFrequency: number
   userId: string
@@ -11,7 +11,7 @@ export async function createGoal({
   title,
   desiredWeeklyFrequency,
   userId,
-}: CreateGoalsRequest) {
+}: CreateGoalRequest) {
   const result = await db
     .insert(goals)
     .values({
