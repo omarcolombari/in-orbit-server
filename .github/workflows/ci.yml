@@ -31,5 +31,5 @@ jobs:
         with:
           node-version: 22
           cache: 'pnpm'
-      - run: pnpm ci
+      - run: pnpm install --frozen-lockfile
       - run: pnpm run test
