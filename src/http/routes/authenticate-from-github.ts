@@ -1,7 +1,7 @@
 import { z } from 'zod'
 
 import type { FastifyPluginAsyncZod } from 'fastify-type-provider-zod'
-import { authenticateFromGithubCode } from '../../functions/autheticate-from-github-code'
+import { authenticateFromGithubCode } from '../../functions/authenticate-from-github-code'
 
 export const authenticateFromGithubRoute: FastifyPluginAsyncZod = async app => {
   app.post(

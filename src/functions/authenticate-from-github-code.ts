@@ -1,7 +1,6 @@
 import { eq } from 'drizzle-orm'
 import { db } from '../db'
-import { goals, users } from '../db/schema'
-import { env } from '../env'
+import { users } from '../db/schema'
 import {
   getAccessTokenFromCode,
   getUserFromAccessToken,
@@ -10,10 +9,6 @@ import { authenticateUser } from '../modules/auth'
 
 interface AuthenticateFromGithubCodeRequest {
   code: string
-}
-
-interface AccessTokenResponse {
-  access_token: string
 }
 
 export async function authenticateFromGithubCode({
