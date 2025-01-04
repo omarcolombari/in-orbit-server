@@ -29,6 +29,13 @@
       "when": 1735597456573,
       "tag": "0003_perpetual_gladiator",
       "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1736009514335,
+      "tag": "0004_slim_vance_astro",
+      "breakpoints": true
     }
   ]
 }
