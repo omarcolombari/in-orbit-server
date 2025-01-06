@@ -2,9 +2,8 @@ import { eq } from 'drizzle-orm'
 import { db } from '../db'
 import { users } from '../db/schema'
 import {
-  calculateExperienceToLevel,
+  calculateExperienceForNextLevel,
   calculateLevelFromExperience,
-  calculateTotalExperienceForLevel,
 } from '../modules/gamification'
 
 interface GetUserLevelAndExperienceRequest {
@@ -23,7 +22,7 @@ export async function getUserLevelAndExperience({
 
   const level = calculateLevelFromExperience(experience)
 
-  const experienceToNextLevel = calculateTotalExperienceForLevel(level)
+  const experienceToNextLevel = calculateExperienceForNextLevel(level)
 
   return {
     experience,

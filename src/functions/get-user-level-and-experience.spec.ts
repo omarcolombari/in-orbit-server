@@ -1,10 +1,9 @@
 import { describe, it, expect } from 'vitest'
-import { getUser } from './get-user'
 import { makeUser } from '../../tests/factories/make-user'
 import { getUserLevelAndExperience } from './get-user-level-and-experience'
 import {
+  calculateExperienceForNextLevel,
   calculateLevelFromExperience,
-  calculateTotalExperienceForLevel,
 } from '../modules/gamification'
 
 describe('get user level and experience', () => {
@@ -20,7 +19,7 @@ describe('get user level and experience', () => {
     expect(sut).toEqual({
       experience: 200,
       level,
-      experienceToNextLevel: calculateTotalExperienceForLevel(level),
+      experienceToNextLevel: calculateExperienceForNextLevel(level),
     })
   })
 })
