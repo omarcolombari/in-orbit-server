@@ -8,6 +8,7 @@
     "seed": "tsx --env-file .env src/db/seed.ts",
     "pretest": "pnpm run db:migrate:test",
     "pretest:watch": "pnpm run db:migrate:test",
+    "db:migrate": "drizzle-kit migrate",
     "db:migrate:test": "dotenv -e .env.test -- drizzle-kit migrate",
     "test": "dotenv -e .env.test -- vitest run",
     "test:watch": "dotenv -e .env.test -- vitest"
